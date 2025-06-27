@@ -1,5 +1,5 @@
 import tensorflow as tf
-from numpy.matrixlib.defmatrix import matrix
+import numpy as np
 
 # check the tensor version
 
@@ -17,23 +17,41 @@ print(scaler.ndim)
 #vectos constants
 
 vector = tf.constant([10,10])
-print(vector)
+print("vector value is {}".format(vector))
 
-print(vector.ndim)
+print("vector.ndim is {}".format(vector.ndim))
 
 matrix = tf.constant([[7,10],
                      [10,7]])
-print(matrix)
+print("matrix value is {}".format(matrix))
 print(matrix.ndim)
 
 another_matrix = tf.constant([[10.,7.],
                               [11.,5.],
                               [5.,5.]], dtype=tf.float16)
-print(another_matrix)
-print(another_matrix.ndim)
+print("another_matrix value is {}".format(another_matrix))
+print("another_matrix.ndim value is {}".format(another_matrix.ndim))
 
-# changeable and unachaneable variables
+# changeable and unreachable variables
 changeable_tensor = tf.Variable([10., 7.], dtype=tf.float16)
-unchaneable_tenson = tf.constant([10.,7.], dtype=tf.float16)
+unchangeable_tensor = tf.constant([10., 7.], dtype=tf.float16)
 print(changeable_tensor)
-print(unchaneable_tenson)
+print(unchangeable_tensor)
+
+print('changeable variable-> {}'.format(changeable_tensor[0]))
+changeable_tensor[0].assign(17)
+print('changeable variable after change->',changeable_tensor)
+
+# Creating random tensors
+
+random_1 = tf.random.Generator.from_seed(42)
+random_1 = random_1.normal(shape=(3,2))
+print("random_1 value is {}".format(random_1))
+
+## NUmpy operations
+numpy_A = np.arange(1, 25, dtype=np.int32)
+print("numpy_array {}".format(numpy_A))
+
+A = tf.constant(numpy_A, shape=(4,3,2))
+print("A value is {}".format(A))
+
