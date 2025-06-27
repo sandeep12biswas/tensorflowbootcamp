@@ -65,3 +65,9 @@ dd.display_tensor(rank_4_tenson)
 print(rank_4_tenson[:2, :2, :2, :2])
 
 #Tensor operations
+
+tensor = tf.constant([[10,7,0], [2,3,1]], dtype=tf.int32)
+print("Tensor addition with 10 {}".format(tensor+10))
+print("Tensor addition with 10 {}".format(tensor+[10,4,3]))
+
+print(tf.add(tensor, 10))
