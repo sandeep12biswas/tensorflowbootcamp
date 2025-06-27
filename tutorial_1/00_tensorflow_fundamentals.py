@@ -63,3 +63,5 @@ rank_4_tenson=tf.constant(numpy_gen, shape=(2,3,4,5))
 dd.display_tensor(rank_4_tenson)
 
 print(rank_4_tenson[:2, :2, :2, :2])
+
+#Tensor operations
