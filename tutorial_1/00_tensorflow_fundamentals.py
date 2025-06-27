@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+import display_tensor_data as dd
 
 # check the tensor version
 
@@ -53,5 +54,12 @@ numpy_A = np.arange(1, 25, dtype=np.int32)
 print("numpy_array {}".format(numpy_A))
 
 A = tf.constant(numpy_A, shape=(4,3,2))
-print("A value is {}".format(A))
+#print("A value is {}".format(A))
 
+## DDifferent tensor elements
+
+numpy_gen=np.arange(1, 121, dtype=np.int32)
+rank_4_tenson=tf.constant(numpy_gen, shape=(2,3,4,5))
+dd.display_tensor(rank_4_tenson)
+
+print(rank_4_tenson[:2, :2, :2, :2])
