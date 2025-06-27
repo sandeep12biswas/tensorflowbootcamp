@@ -32,3 +32,8 @@ another_matrix = tf.constant([[10.,7.],
 print(another_matrix)
 print(another_matrix.ndim)
 
+# changeable and unachaneable variables
+changeable_tensor = tf.Variable([10., 7.], dtype=tf.float16)
+unchaneable_tenson = tf.constant([10.,7.], dtype=tf.float16)
+print(changeable_tensor)
+print(unchaneable_tenson)
